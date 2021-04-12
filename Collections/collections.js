@@ -2,7 +2,6 @@ export class Playlist {
     constructor(name) {
         this.name = name;
         this.songs = [];
-        this.createdAt = new Date();
         this.duration = 0;
     }
 

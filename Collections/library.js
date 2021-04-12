@@ -41,7 +41,6 @@ function showPlaylists() {
         console.log("#) Mostrar Playlist (indice)");
         console.log("0 o Enter) Volver");
         let index = Number(prompt())
-        console.log(index);
         while (isNaN(index)) {
             console.log("Opción no valida");
             index = prompt();
@@ -105,25 +104,31 @@ function showPlaylist(index) {
         addSong(playlist)
         showPlaylist(index);
     } else if (action == '2' && playlist.songs.length > 0) {
-        console.log("Ingresa el número de la canción a eliminar.");
-        let index = Number(prompt());
-        while (isNaN(index) || index > playlist.songs.length) {
-            console.log("Ingresa valores validos");
-            index = prompt();
-        }
-        let deletedSong = playlist.songs.splice(index - 1, 1);
-        console.log(`${deletedSong} eliminado`);
+        deleteSongFrom(playlist);
     } else if (action == '3') {
-        console.log("¿Cuál será el nuevo nombre?");
-        let name = Number(prompt());
-        playlist.name = name;
-        console.log("Playlist actualizada");
+        editName(playlist);
         showPlaylist(index);
     } else if (action == '4') {
         showPlaylists();
     } else {
         showPlaylist(index);
     }
-
 }
 
+function editName(playlist) {
+    console.log("¿Cuál será el nuevo nombre?");
+    let name = prompt();
+    playlist.name = name;
+    console.log("Playlist actualizada");
+}
+
+function deleteSongFrom(playlist) {
+    console.log("Ingresa el número de la canción a eliminar.");
+    let index = Number(prompt());
+    while (isNaN(index) || index > playlist.songs.length) {
+        console.log("Ingresa valores validos");
+        index = prompt();
+    }
+    let deletedSong = playlist.songs.splice(index - 1, 1);
+    console.log(`${deletedSong} eliminado`);
+}
