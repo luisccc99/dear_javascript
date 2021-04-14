@@ -1,0 +1,12 @@
+{
+  "name": "gamecharacters",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "use of inheritance and composition",
+  "main": "Character.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Cruz",
+  "license": "ISC"
+}
